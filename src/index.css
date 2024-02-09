@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FEFBF6;
+  max-height: 100vh;
+}
+
+.main-form {
+  background-color: #211C6A;
+  color: white;
+  padding: 14px;
+  min-width: 300px;
+  max-width: 600px;
+  min-height: 300px;
+  margin: 15vh auto 20px auto;
+  border-radius: 5px;
+}
+
+.main-form:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 3px black;
+  transition: all ease-in-out 1s;
+}
+
+.main-form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.main-form hr {
+  margin-bottom: 18px;
+}
+
+.add-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-container input {
+  font-size: 1rem;
+  padding: 8px;
+  outline: none;
+
+}
+
+.add-container .add-btn {
+  background: #00FF00;
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.item-card {
+  background-color: #EEEDEB;
+  direction: rtl;
+  padding: 5px;
+  margin: 8px auto;
+  max-width: 90%;
+  border-radius: 5px;
+
+}
+
+/* .item-card:hover {
+  transform: translate(1px, 1px);
+  transition: all ease-in-out 1s;
+} */
+
+.complete {
+  background-color: #74E291;
+  padding: 10px;
+}
+
+.ready {
+  background-color: #E78895;
+  padding: 10px;
+}
+
+.text-span {
+  color: #130e57;
+  display: inline-block;
+  overflow: auto;
+  width: 50%;
+  font-size: 1.5rem;
+  text-align: right;
+  margin-left: 1rem;
+  font-weight: 400;
+}
+
+.ready input,
+.complete input {
+  font-size: 18px;
+  padding: 5px;
+  margin-right: 2rem;
+  border-radius: 5px;
+  outline: none;
+}
+
+.delete-btn {
+  background-color: #FF6868;
+  outline: none;
+}
+
+.delete-btn:hover {
+  background-color: #FF0000;
+  transition: all ease-in-out 1s;
+
+}
+
+.edit-btn {
+  background-color: #A1EEBD;
+  outline: none;
+}
+
+.edit-btn:hover {
+  background-color: #00FF00;
+  transition: all ease-in-out 1s;
+
+}
+
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.edit-container input {
+  font-size: 1rem;
+  padding: 10px;
+  outline: none;
+}
+
+.edit-container button {
+  padding: 10px;
+  border: none;
+  margin: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 100px;
+  color: #FEFBF6;
+  font-weight: 900;
+}
+
+.edit-container .close-btn {
+  background-color: #FF0000;
+}
+
+.edit-container .confirm-btn {
+  background-color: #00FF00;
+}
