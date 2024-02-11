@@ -19,6 +19,8 @@ function AddForm() {
     isComplete: "",
   });
 
+  //EVENTS
+
   const handleAdd = (e) => {
     e.preventDefault();
     if (task.item !== "") {
@@ -43,34 +45,34 @@ function AddForm() {
 
   // FILTERS
 
-  
+  const completedToDos = getFromLocalStorage.filter((t) => {
+    if (t.isComplete === true) {
+      return t;
+    }
+  });
 
-  // const completedToDos = taskList.filter((t) => {
-  //   return t.isComplete === true;
-  // });
+  const notCompletedToDos = getFromLocalStorage.filter((t) => {
+    if (t.isComplete === false) {
+      return t;
+    }
+  });
 
-  // const notCompletedToDos = taskList.filter((t) => {
-  //   return t.isComplete === false;
-  // });
+  const allToDos = getFromLocalStorage.map((t) => {
+    return t;
+  });
 
-  // const allToDos = taskList.map((t) => {
-  //   return t;
-  // })
-
-  
-
-  // const filterHandle = (e) => {
-  //   if (e.target.name === "done") {
-      
-  //     console.log("done")
-  //   } else if (e.target.name === "notDone") {
-      
-  //     console.log("not")
-  //   } else {
-      
-  //     console.log("all")
-  //   }
-  // };
+  const filterHandle = (e) => {
+    if (e.target.name === "done") {
+      setTaskList(completedToDos);
+      // console.log("done");
+    } else if (e.target.name === "notDone") {
+      setTaskList(notCompletedToDos);
+      // console.log("not");
+    } else {
+      setTaskList(allToDos);
+      // console.log("all");
+    }
+  };
 
   return (
     <>
@@ -106,11 +108,20 @@ function AddForm() {
             />
           </div>
 
-          {/* <div className="filter-btns">
-            <button name="done" onClick={filterHandle}> Done </button>
-            <button name="notDone" onClick={filterHandle}> Not Done </button>
-            <button name="all" onClick={filterHandle}> All </button>
-          </div> */}
+          <div className="filter-btns">
+            <button name="done" onClick={filterHandle}>
+              {" "}
+              Done{" "}
+            </button>
+            <button name="notDone" onClick={filterHandle}>
+              {" "}
+              Not Done{" "}
+            </button>
+            <button name="all" onClick={filterHandle}>
+              {" "}
+              All{" "}
+            </button>
+          </div>
 
           {taskList.map((t) => {
             return (
