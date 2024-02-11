@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useContext } from "react";
 import { ContextList } from "./DataContext";
 
@@ -9,9 +10,7 @@ const addToLocalStorage = (item) => {
 function Btn({ todo, delBtnTxt, delBtnHandler, editBtnTxt }) {
   const [tList, setTList] = useContext(ContextList);
 
-  const [done, setDone] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
-  const [bg, setBg] = useState("ready");
 
   const [editInput, setEditInput] = useState(todo);
 
@@ -19,6 +18,18 @@ function Btn({ todo, delBtnTxt, delBtnHandler, editBtnTxt }) {
   const editBtnHandler = () => {
     setShowEdit(true);
     console.log("edit");
+  };
+
+  const handleIsCompleted = (e) => {
+    const update = tList.map((td) => {
+      if (td.id === editInput.id) {
+        return { ...editInput, isComplete: e.target.checked };
+      } else {
+        return td;
+      }
+    });
+    setTList(update);
+    addToLocalStorage(update);
   };
 
   const handleEditTask = () => {
@@ -37,24 +48,17 @@ function Btn({ todo, delBtnTxt, delBtnHandler, editBtnTxt }) {
     addToLocalStorage(update);
 
     setShowEdit(false);
-
-    // JUST FOR TEST
-    // console.log(tList);
-    // console.log(update);
-    // console.log(editInput);
   };
 
   return (
     <>
       <div className="item-card">
-        <div className={bg}>
+        <div className={todo.isComplete ? "complete" : "ready"}>
           <span className="text-span"> {editInput.item} </span>
           <input
             type="checkbox"
-            onChange={(e) => {
-              setDone(e.target.checked);
-              done ? setBg("ready") : setBg("complete");
-            }}
+            checked={todo.isComplete}
+            onChange={handleIsCompleted}
           />
           <input
             className="delete-btn"

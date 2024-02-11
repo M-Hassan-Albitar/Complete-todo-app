@@ -16,6 +16,7 @@ function AddForm() {
   const [task, setTask] = useState({
     id: "",
     item: "",
+    isComplete: "",
   });
 
   const handleAdd = (e) => {
@@ -57,7 +58,12 @@ function AddForm() {
               type="text"
               value={task.item}
               onChange={(e) => {
-                setTask({ ...task, item: e.target.value, id: nanoid() });
+                setTask({
+                  ...task,
+                  item: e.target.value,
+                  id: nanoid(),
+                  isComplete: false,
+                });
               }}
             />
 
