@@ -41,6 +41,37 @@ function AddForm() {
     addToLocalStorage(newList);
   };
 
+  // FILTERS
+
+  
+
+  // const completedToDos = taskList.filter((t) => {
+  //   return t.isComplete === true;
+  // });
+
+  // const notCompletedToDos = taskList.filter((t) => {
+  //   return t.isComplete === false;
+  // });
+
+  // const allToDos = taskList.map((t) => {
+  //   return t;
+  // })
+
+  
+
+  // const filterHandle = (e) => {
+  //   if (e.target.name === "done") {
+      
+  //     console.log("done")
+  //   } else if (e.target.name === "notDone") {
+      
+  //     console.log("not")
+  //   } else {
+      
+  //     console.log("all")
+  //   }
+  // };
+
   return (
     <>
       <ContextList.Provider value={[taskList, setTaskList]}>
@@ -74,6 +105,12 @@ function AddForm() {
               onClick={handleAdd}
             />
           </div>
+
+          {/* <div className="filter-btns">
+            <button name="done" onClick={filterHandle}> Done </button>
+            <button name="notDone" onClick={filterHandle}> Not Done </button>
+            <button name="all" onClick={filterHandle}> All </button>
+          </div> */}
 
           {taskList.map((t) => {
             return (

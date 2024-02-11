@@ -159,3 +159,17 @@ body {
 .edit-container .confirm-btn {
   background-color: #00FF00;
 }
+
+.filter-btns {
+  text-align: center;
+  padding: 5px;
+}
+
+.filter-btns button {
+  margin: 5px;
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: cyan;
+}
