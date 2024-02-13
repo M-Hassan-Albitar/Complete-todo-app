@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { nanoid } from "nanoid";
 import TaskModel from "./TaskModel";
 
 import { ContextList } from "./DataContext";
+import { ToastContext } from "./ToastContext";
 
 const addToLocalStorage = (item) => {
   localStorage.setItem("todoStorageList", JSON.stringify(item));
 };
 
 function AddForm() {
+  const { handleToast } = useContext(ToastContext);
+
   const getFromLocalStorage =
     JSON.parse(localStorage.getItem("todoStorageList")) || [];
   const [taskList, setTaskList] = useState(getFromLocalStorage);
@@ -27,6 +30,7 @@ function AddForm() {
       setTaskList([...taskList, task]);
       addToLocalStorage([...taskList, task]);
       setTask({ item: "" });
+      handleToast("Add Success!");
       console.log("ok");
     } else {
       alert("Can not be empty!");
@@ -41,6 +45,7 @@ function AddForm() {
     });
     setTaskList(newList);
     addToLocalStorage(newList);
+    handleToast("Deleted !");
   };
 
   // FILTERS

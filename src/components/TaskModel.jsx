@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState, useContext } from "react";
 import { ContextList } from "./DataContext";
+import { ToastContext } from "./ToastContext";
 
 const addToLocalStorage = (item) => {
   localStorage.setItem("todoStorageList", JSON.stringify(item));
@@ -9,6 +10,7 @@ const addToLocalStorage = (item) => {
 // eslint-disable-next-line react/prop-types
 function Btn({ todo, delBtnTxt, delBtnHandler, editBtnTxt }) {
   const [tList, setTList] = useContext(ContextList);
+  const { handleToast } = useContext(ToastContext);
 
   const [showEdit, setShowEdit] = useState(false);
 
@@ -48,6 +50,7 @@ function Btn({ todo, delBtnTxt, delBtnHandler, editBtnTxt }) {
     addToLocalStorage(update);
 
     setShowEdit(false);
+    handleToast("Edit Success !");
   };
 
   return (
